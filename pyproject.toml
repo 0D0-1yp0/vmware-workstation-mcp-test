@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vmware-workstation-mcp"
+version = "0.1.0"
+description = "Lightweight local Model Context Protocol (MCP) server for VMware Workstation / Fusion / Player via vmrun (zero daemon, Windows GBK/UTF-8 safe)."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [
+    { name = "0D0-1yp0" }
+]
+keywords = [
+    "mcp",
+    "model-context-protocol",
+    "vmware",
+    "vmware-workstation",
+    "vmware-fusion",
+    "vmrun",
+    "fastmcp",
+    "ai-agent",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Emulators",
+]
+dependencies = [
+    "mcp>=1.2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/0D0-1yp0/vmware-workstation-mcp-test"
+Repository = "https://github.com/0D0-1yp0/vmware-workstation-mcp-test"
+Issues = "https://github.com/0D0-1yp0/vmware-workstation-mcp-test/issues"
+
+[project.scripts]
+vmware-mcp = "vmware_mcp.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
