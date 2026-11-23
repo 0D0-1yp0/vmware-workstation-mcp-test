@@ -26,11 +26,14 @@ logging.basicConfig(
 )
 logger = logging.getLogger("vmware-mcp.server")
 
-from mcp.server.fastmcp import FastMCP  # noqa: E402
+try:
+    from mcp.server.mcpserver import MCPServer as _MCPServer  # noqa: E402
+except ModuleNotFoundError:
+    from mcp.server.fastmcp import FastMCP as _MCPServer  # noqa: E402
 
 from .client import VMwareClient, VMwareError, parse_vmx_metadata  # noqa: E402
 
-mcp = FastMCP("vmware-mcp")
+mcp = _MCPServer("vmware-mcp")
 _client: Optional[VMwareClient] = None
 
 

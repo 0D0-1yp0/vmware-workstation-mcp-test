@@ -37,7 +37,7 @@ classifiers = [
     "Topic :: System :: Emulators",
 ]
 dependencies = [
-    "mcp>=1.2.0",
+    "mcp>=1.2.0,<2.0.0",
 ]
 
 [project.urls]
