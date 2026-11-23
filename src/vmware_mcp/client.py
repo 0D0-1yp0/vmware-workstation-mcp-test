@@ -460,7 +460,7 @@ class VMwareClient:
                 exact_matches.append(vm)
 
         if len(exact_matches) == 1:
-            return Path(exact_matches[0]["vmx_path"])
+            return Path(exact_matches[0]["vmx_path"]).resolve()
         if len(exact_matches) > 1:
             raise VMwareError(
                 f"Ambiguous VM identifier '{vm_identifier}': multiple exact matches found.",
@@ -476,7 +476,7 @@ class VMwareClient:
             or q_lower in vm["vmx_path"].lower()
         ]
         if len(partial_matches) == 1:
-            return Path(partial_matches[0]["vmx_path"])
+            return Path(partial_matches[0]["vmx_path"]).resolve()
         if len(partial_matches) > 1:
             raise VMwareError(
                 f"Ambiguous VM identifier '{vm_identifier}': matched {len(partial_matches)} VMs. "
